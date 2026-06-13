@@ -1,0 +1,85 @@
+{
+  "@context": {
+    "@vocab": "https://schema.org/",
+    "aid": "https://apis.io/vocab/aid",
+    "wasabi": "https://wasabi.com/",
+    "s3": "https://docs.aws.amazon.com/AmazonS3/latest/API/",
+    "wacm": "https://docs.wasabi.com/apidocs/",
+    "hydra": "http://www.w3.org/ns/hydra/core#",
+    "xsd": "http://www.w3.org/2001/XMLSchema#"
+  },
+  "@type": "WebAPI",
+  "@id": "https://raw.githubusercontent.com/api-evangelist/wasabi/refs/heads/main/apis.yml",
+  "name": "Wasabi",
+  "description": "Wasabi Hot Cloud Storage is an S3-compatible object storage service offering a REST API that mirrors the Amazon S3 API for storing, retrieving, and managing objects and buckets.",
+  "url": "https://wasabi.com",
+  "documentation": "https://docs.wasabi.com",
+  "provider": {
+    "@type": "Organization",
+    "name": "Wasabi Technologies",
+    "url": "https://wasabi.com",
+    "sameAs": [
+      "https://github.com/wasabi-tech",
+      "https://www.linkedin.com/company/wasabitechnologies/",
+      "https://x.com/wasabi_cloud"
+    ]
+  },
+  "category": [
+    "Cloud Storage",
+    "Object Storage",
+    "S3 Compatible",
+    "Hot Storage",
+    "Backup",
+    "Enterprise Storage"
+  ],
+  "hasAPI": [
+    {
+      "@type": "WebAPI",
+      "aid:id": "wasabi:wasabi-s3-api",
+      "name": "Wasabi S3 API",
+      "description": "100% bit-compatible implementation of the Amazon S3 REST API for creating and managing buckets, uploading and retrieving objects, controlling access, and managing lifecycle policies.",
+      "url": "https://docs.wasabi.com/apidocs/rest-api-introduction",
+      "endpointUrl": "https://s3.wasabisys.com",
+      "documentation": "https://docs.wasabi.com/apidocs/rest-api-introduction",
+      "termsOfService": "https://wasabi.com/legal/",
+      "category": ["S3", "Object Storage", "Buckets", "Objects"],
+      "authenticationMethod": [
+        "AWS Signature Version 2",
+        "AWS Signature Version 4"
+      ]
+    },
+    {
+      "@type": "WebAPI",
+      "aid:id": "wasabi:wasabi-account-control-api",
+      "name": "Wasabi Account Control Management (WACM) API",
+      "description": "Programmatic access to account management, user and sub-account provisioning, IAM policy management, access key management, and account utilization data.",
+      "url": "https://docs.wasabi.com/apidocs/",
+      "endpointUrl": "https://accountcontrolservice.wasabisys.com",
+      "documentation": "https://docs.wasabi.com/apidocs/",
+      "category": ["Account Management", "IAM", "Users", "Access Keys", "Sub-accounts"],
+      "authenticationMethod": ["HTTP Basic Auth"]
+    },
+    {
+      "@type": "WebAPI",
+      "aid:id": "wasabi:wasabi-stats-api",
+      "name": "Wasabi Stats API",
+      "description": "Access to utilization analytics and storage statistics for accounts, including storage usage, bandwidth metrics, and cost utilization data.",
+      "url": "https://docs.wasabi.com/apidocs/",
+      "endpointUrl": "https://accountcontrolservice.wasabisys.com",
+      "documentation": "https://docs.wasabi.com/apidocs/",
+      "category": ["Analytics", "Utilization", "Statistics", "Reporting"],
+      "authenticationMethod": ["API Key"]
+    },
+    {
+      "@type": "WebAPI",
+      "aid:id": "wasabi:wasabi-air-api",
+      "name": "Wasabi AiR API",
+      "description": "AI-powered media intelligence capabilities for objects stored in Wasabi, enabling content analysis, tagging, and search across media assets.",
+      "url": "https://docs.wasabi.com/apidocs/",
+      "endpointUrl": "https://api.wasabi.com",
+      "documentation": "https://docs.wasabi.com/docs/wasabi-air-api-and-integration-guides.md",
+      "category": ["AI", "Media Intelligence", "Content Analysis", "Machine Learning"],
+      "authenticationMethod": ["API Key"]
+    }
+  ]
+}
