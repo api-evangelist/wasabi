@@ -1,0 +1,164 @@
+name: Wasabi FinOps Framework
+description: >-
+  FinOps framework documentation for Wasabi Hot Cloud Storage, mapping Wasabi's
+  cost model to the FinOps Foundation FOCUS (FinOps Open Cost and Usage
+  Specification) framework. Covers cost optimization levers, billing dimensions,
+  and cloud financial management practices for Wasabi storage workloads.
+specificationVersion: '1.0'
+url: https://wasabi.com/pricing
+focusVersion: '1.0'
+provider:
+  name: Wasabi Technologies
+  service: Wasabi Hot Cloud Storage
+  website: https://wasabi.com
+  pricing: https://wasabi.com/pricing
+costModel:
+  type: CapacityBased
+  description: >-
+    Wasabi charges solely for storage capacity consumed. Unlike AWS S3 and
+    most hyperscale competitors, there are no egress fees, no API request
+    fees, and no ingress fees. Cost is determined by storage volume and
+    duration, making Wasabi highly predictable for capacity-heavy workloads.
+  dimensions:
+    - name: Storage Capacity
+      focusDimension: UsageQuantity
+      unit: TB/month
+      rate:
+        payGo:
+          amount: 7.99
+          currency: USD
+          effectiveDate: '2026-07-01'
+          notes: Previous rate was $6.99/TB/month through June 30, 2026.
+        reserved:
+          description: >-
+            Discounted rates available for 1-year, 3-year, and 5-year
+            Reserved Capacity Storage (RCS) contracts. Specific rates
+            require sales engagement.
+    - name: Egress
+      focusDimension: UsageQuantity
+      unit: TB/month
+      rate:
+        amount: 0
+        currency: USD
+        description: >-
+          Free up to a 1:1 ratio with active storage volume. No egress
+          charges are billed regardless of destination (internet, other
+          clouds, on-premises).
+      constraint: >-
+        Monthly egress must not exceed active storage volume. Exceeding
+        the 1:1 ratio may result in service limitation.
+    - name: API Requests
+      focusDimension: UsageQuantity
+      unit: Requests/month
+      rate:
+        amount: 0
+        currency: USD
+        description: >-
+          All API requests (GET, PUT, LIST, DELETE, HEAD, COPY) are
+          included at no additional charge for standard commercial
+          workloads.
+    - name: Ingress
+      focusDimension: UsageQuantity
+      unit: TB/month
+      rate:
+        amount: 0
+        currency: USD
+        description: All data uploads to Wasabi are free and unrestricted.
+billingConstraints:
+  - name: Minimum Storage Duration
+    focusDimension: CommitmentDiscountStatus
+    description: >-
+      Objects must be stored for a minimum of 90 days. Early deletion
+      triggers Timed Deleted Storage charges for remaining days at the
+      standard storage rate. This constraint functions similarly to AWS S3
+      Intelligent-Tiering minimum duration requirements.
+    duration: 90
+    unit: days
+    earlyDeletionFee: true
+  - name: Minimum Object Size
+    description: >-
+      Objects smaller than 4 KB are billed as 4 KB. Workloads with many
+      small objects (e.g., metadata, thumbnails) should factor this into
+      cost projections.
+    minimumBilledSize: 4
+    unit: KB
+  - name: Minimum Monthly Storage
+    description: >-
+      Pay-Go Object Storage accounts are subject to a 1 TB monthly
+      minimum billing floor regardless of actual usage below that threshold.
+    minimums:
+      - service: Object Storage
+        amount: 1
+        unit: TB/month
+      - service: Cloud NAS
+        amount: 10
+        unit: TB/month
+focusDomains:
+  - domain: Cost Allocation
+    description: >-
+      Wasabi costs are allocated primarily by storage bucket and region.
+      Bucket-level tagging using S3-compatible object tags and bucket
+      tags enables cost allocation by team, project, or environment within
+      a single Wasabi account or across sub-accounts via the WACM API.
+    practices:
+      - Use bucket naming conventions for cost center allocation
+      - Leverage WACM sub-accounts for organizational cost separation
+      - Apply S3 object tags for workload-level cost attribution
+      - Use the Wasabi Stats API for utilization analytics and chargeback
+  - domain: Cost Optimization
+    description: >-
+      Primary cost optimization levers for Wasabi workloads given the
+      simplified pricing model (no egress, no request fees).
+    practices:
+      - Monitor and enforce 90-day minimum storage duration to avoid early
+        deletion charges — use object lifecycle policies where possible
+      - Right-size storage by managing small-object accumulation (objects
+        below 4 KB billed at 4 KB minimum)
+      - Maintain egress-to-storage ratio below 1:1 to stay within free
+        egress policy
+      - Evaluate Reserved Capacity Storage for stable, predictable workloads
+        exceeding 100 TB — term discounts can reduce effective per-TB rate
+      - Consolidate accounts to minimize the impact of the 1 TB monthly
+        minimum billing floor on low-volume accounts
+  - domain: Rate Optimization
+    description: >-
+      Strategies for reducing per-unit costs using Wasabi's pricing tiers.
+    practices:
+      - Compare Pay-Go rate ($7.99/TB/month effective July 2026) against
+        RCS committed rates for workloads with predictable capacity
+      - Longer RCS terms (3 or 5 years) provide greater discounts for
+        stable, long-lived storage workloads
+      - Factor in zero egress and zero API request costs when comparing
+        total cost of ownership against AWS S3, GCS, and Azure Blob Storage
+  - domain: Cloud Sustainability
+    description: >-
+      Wasabi operates purpose-built data centers optimized for storage
+      density and energy efficiency, achieving Power Usage Effectiveness
+      (PUE) ratings that support sustainable storage practices.
+    practices:
+      - Evaluate Wasabi as a lower-carbon footprint alternative to
+        hyperscale providers for archive and backup workloads
+      - Consolidate cold and warm storage to Wasabi to reduce multi-cloud
+        storage sprawl
+costComparison:
+  description: >-
+    Wasabi's pricing advantage versus hyperscale providers stems from the
+    elimination of egress and API request fees, which can represent 30-60%
+    of total storage costs on platforms like AWS S3 for egress-heavy workloads.
+  competitors:
+    - name: AWS S3 Standard
+      storageRate: ~23/TB/month
+      egressRate: ~87/TB
+      apiRequests: Charged separately
+    - name: Google Cloud Storage Standard
+      storageRate: ~20/TB/month
+      egressRate: ~80-120/TB
+      apiRequests: Charged separately
+    - name: Azure Blob Storage Hot
+      storageRate: ~18/TB/month
+      egressRate: ~87/TB
+      apiRequests: Charged separately
+  wasabiAdvantage: >-
+    For workloads with significant egress (backups, media delivery, data
+    analytics) the total cost of ownership on Wasabi is typically 60-80%
+    lower than equivalent AWS S3 workloads when egress fees are included.

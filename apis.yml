@@ -1,0 +1,130 @@
+aid: wasabi
+name: Wasabi
+description: >-
+  Wasabi Hot Cloud Storage is an S3-compatible object storage service offering a
+  REST API that mirrors the Amazon S3 API for storing, retrieving, and managing
+  objects and buckets. Wasabi provides always-consistent storage at lower cost
+  than hyperscale providers, with no egress fees, no API request fees, and
+  enterprise-grade performance across multiple global regions.
+type: Index
+image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+url: https://raw.githubusercontent.com/api-evangelist/wasabi/refs/heads/main/apis.yml
+created: 2026-06-13
+modified: 2026-06-13
+specificationVersion: '0.19'
+tags:
+  - Cloud Storage
+  - Object Storage
+  - S3 Compatible
+  - REST API
+  - Hot Storage
+  - Buckets
+  - Objects
+  - Media Storage
+  - Backup
+  - Enterprise Storage
+apis:
+  - aid: wasabi:wasabi-s3-api
+    name: Wasabi S3 API
+    description: >-
+      The Wasabi S3 API is a 100% bit-compatible implementation of the Amazon
+      S3 REST API for creating and managing buckets, uploading and retrieving
+      objects, controlling access, and managing lifecycle policies. Supports
+      both AWS Signature Version 2 and Version 4 authentication. Any tool or
+      SDK built for Amazon S3 works with Wasabi by simply changing the endpoint
+      URL to the appropriate Wasabi regional endpoint.
+    image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+    humanURL: https://docs.wasabi.com/apidocs/rest-api-introduction
+    baseURL: https://s3.wasabisys.com
+    tags:
+      - S3
+      - Object Storage
+      - Buckets
+      - Objects
+      - REST API
+      - S3 Compatible
+    properties:
+      - type: Documentation
+        url: https://docs.wasabi.com/apidocs/rest-api-introduction
+      - type: Authentication
+        url: https://docs.wasabi.com/apidocs/rest-api-introduction
+  - aid: wasabi:wasabi-account-control-api
+    name: Wasabi Account Control Management (WACM) API
+    description: >-
+      The Wasabi Account Control Management API provides programmatic access to
+      account management, user and sub-account provisioning, IAM policy
+      management, access key management, and account utilization data.
+    image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+    humanURL: https://docs.wasabi.com/apidocs/api-guides
+    baseURL: https://accountcontrolservice.wasabisys.com
+    tags:
+      - Account Management
+      - IAM
+      - Users
+      - Access Keys
+      - Sub-accounts
+    properties:
+      - type: Documentation
+        url: https://docs.wasabi.com/apidocs/api-guides
+  - aid: wasabi:wasabi-stats-api
+    name: Wasabi Stats API
+    description: >-
+      The Wasabi Stats API provides access to utilization analytics and storage
+      statistics for accounts, including storage usage, bandwidth metrics, and
+      cost utilization data for reporting and FinOps purposes.
+    image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+    humanURL: https://docs.wasabi.com/apidocs/api-guides
+    baseURL: https://accountcontrolservice.wasabisys.com
+    tags:
+      - Analytics
+      - Utilization
+      - Statistics
+      - Reporting
+    properties:
+      - type: Documentation
+        url: https://docs.wasabi.com/apidocs/api-guides
+  - aid: wasabi:wasabi-air-api
+    name: Wasabi AiR API
+    description: >-
+      The Wasabi AiR (AI Ready) API provides AI-powered media intelligence
+      capabilities for objects stored in Wasabi, enabling content analysis,
+      tagging, and search across media assets stored in Wasabi buckets.
+    image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+    humanURL: https://docs.wasabi.com/apidocs/api-guides
+    baseURL: https://api.wasabi.com
+    tags:
+      - AI
+      - Media Intelligence
+      - Content Analysis
+      - Machine Learning
+    properties:
+      - type: Documentation
+        url: https://docs.wasabi.com/apidocs/api-guides
+common:
+  - type: Website
+    url: https://wasabi.com
+  - type: Documentation
+    url: https://docs.wasabi.com
+  - type: GitHubOrg
+    url: https://github.com/wasabi-tech
+  - type: LinkedIn
+    url: https://www.linkedin.com/company/wasabitechnologies/
+  - type: Blog
+    url: https://wasabi.com/blog/
+  - type: Pricing
+    url: https://wasabi.com/pricing
+  - type: StatusPage
+    url: https://status.wasabi.com
+  - type: X
+    url: https://x.com/wasabi_cloud
+  - type: PostmanCollection
+    url: https://www.postman.com/wasabi-dev
+  - type: Plans
+    url: plans/wasabi-plans-pricing.yml
+  - type: RateLimits
+    url: rate-limits/wasabi-rate-limits.yml
+  - type: FinOps
+    url: finops/wasabi-finops.yml
+maintainers:
+  - FN: Kin Lane
+    email: kin@apievangelist.com

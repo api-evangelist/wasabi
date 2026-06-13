@@ -1,0 +1,102 @@
+name: Wasabi Plans and Pricing
+description: >-
+  Wasabi offers simple, transparent pricing for hot cloud object storage with
+  no egress fees and no API request fees. Pricing is capacity-based with
+  pay-as-you-go and reserved capacity options.
+specificationVersion: '0.1'
+url: https://wasabi.com/pricing
+plans:
+  - name: Pay as You Go
+    description: >-
+      Flexible pay-as-you-go storage pricing billed monthly. No long-term
+      commitment required. Storage is charged at the standard per-TB monthly
+      rate with no egress or API request fees. Minimum storage duration of 90
+      days applies — objects deleted before 90 days are billed for the
+      remainder of the minimum period.
+    url: https://wasabi.com/pricing
+    type: PayAsYouGo
+    rate:
+      - type: Storage
+        amount: 7.99
+        currency: USD
+        unit: TB/month
+        effectiveDate: '2026-07-01'
+        notes: >-
+          Previous rate was $6.99/TB/month through June 30, 2026. Rate
+          applies equally across all regions (North America, EMEA, APAC).
+    features:
+      - No egress fees
+      - No API request fees
+      - Free data ingress
+      - Always-consistent storage
+      - S3-compatible API
+      - Multiple global regions
+      - 99.999999999% (11 9s) data durability
+    limits:
+      - type: MinimumStorageDuration
+        value: 90
+        unit: days
+        description: >-
+          Objects deleted before 90 days are billed for the remaining
+          minimum storage period at the standard rate.
+      - type: MinimumObjectSize
+        value: 4
+        unit: KB
+        description: Objects smaller than 4 KB are billed as 4 KB.
+      - type: MinimumMonthlyStorage
+        value: 1
+        unit: TB
+        description: >-
+          The minimum monthly storage charge is 1 TB for Object Storage
+          accounts.
+      - type: EgressRatio
+        value: 1
+        unit: ratio
+        description: >-
+          Monthly egress must not exceed active storage volume. Exceeding
+          this 1:1 ratio may result in service limitation or suspension.
+    support:
+      - type: Basic
+        description: Standard support included at no additional cost.
+  - name: Reserved Capacity Storage (RCS)
+    description: >-
+      Reserved capacity storage contracts for enterprises requiring cost
+      predictability and capacity planning. Available in 1-year, 3-year, and
+      5-year terms with volume-based discounts. Designed for organizations
+      with large, stable storage workloads.
+    url: https://wasabi.com/pricing
+    type: Reserved
+    rate:
+      - type: Storage
+        notes: >-
+          Pricing is based on $7.99/TB/month base rate with volume and term
+          discounts applied. Specific rates require contacting Wasabi sales.
+          Overages on RCS contracts are billed at the standard $7.99/TB/month
+          Pay-Go rate starting July 1, 2026.
+    features:
+      - No egress fees
+      - No API request fees
+      - Free data ingress
+      - Volume-based discounts
+      - Term-based discounts (1, 3, or 5 years)
+      - Cost predictability
+      - Priority premium support
+      - Enterprise SLA
+      - Always-consistent storage
+    limits:
+      - type: MinimumStorageDuration
+        value: 90
+        unit: days
+        description: >-
+          Same minimum storage duration policies apply as Pay-Go.
+      - type: MinimumObjectSize
+        value: 4
+        unit: KB
+        description: Objects smaller than 4 KB are billed as 4 KB.
+    support:
+      - type: Premium
+        description: Premium support plan included with reserved capacity contracts.
+    terms:
+      - 1 year
+      - 3 years
+      - 5 years

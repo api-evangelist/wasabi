@@ -1,0 +1,81 @@
+name: Wasabi Rate Limits
+description: >-
+  Wasabi does not publish hard numerical rate limits for API requests.
+  Instead, Wasabi enforces a free API request policy based on qualitative
+  usage standards. Accounts with validated commercial use cases are generally
+  compliant. Non-validated applications causing inefficient server loads may
+  face restrictions. Egress-to-storage ratio enforcement acts as an implicit
+  throughput constraint.
+specificationVersion: '0.1'
+url: https://wasabi.com/pricing/faq
+limits:
+  - name: API Request Rate
+    type: Requests
+    description: >-
+      Wasabi does not publish specific requests-per-second or requests-per-day
+      limits. The free API request policy is enforced qualitatively. Standard
+      commercial S3-compatible workloads are generally not rate limited.
+      Excessive or abusive request patterns may result in throttling or
+      service suspension. The HTTP 400 error RequestRateLimitExceeded is
+      returned when an account exceeds the limit for a given request type.
+    enforcement: Qualitative
+    errorCode: RequestRateLimitExceeded
+    errorHTTPStatus: 400
+  - name: Egress-to-Storage Ratio
+    type: Bandwidth
+    description: >-
+      Monthly egress data transfer must not exceed the active storage volume.
+      If an account's monthly egress exceeds its active storage amount, Wasabi
+      considers the use case a poor fit for the platform and may limit or
+      suspend the service without additional charges.
+    limit: 1
+    unit: Ratio (egress:storage)
+    enforcement: Enforced — may result in service limitation or suspension
+    notes: >-
+      Example: storing 100 TB allows up to 100 TB of monthly egress downloads
+      at no charge. Exceeding this ratio triggers policy enforcement.
+  - name: Minimum Object Size (Billing)
+    type: Storage
+    description: >-
+      Objects smaller than 4 KB are billed as 4 KB. This is a billing floor,
+      not a technical upload restriction. Small-object-heavy workloads should
+      account for this in cost projections.
+    limit: 4
+    unit: KB
+    enforcement: Billing floor
+  - name: Minimum Storage Duration (Billing)
+    type: Duration
+    description: >-
+      Objects must be stored for a minimum of 90 days under the Pay-Go
+      pricing model. Objects deleted before 90 days are charged Timed Deleted
+      Storage fees for the remaining days at the standard storage rate.
+    limit: 90
+    unit: days
+    enforcement: Billing — early deletion fees apply
+  - name: Minimum Monthly Storage (Billing)
+    type: Storage
+    description: >-
+      Object Storage accounts are subject to a 1 TB monthly minimum storage
+      charge. Cloud NAS accounts have a 10 TB monthly minimum.
+    limits:
+      - type: ObjectStorage
+        limit: 1
+        unit: TB/month
+      - type: CloudNAS
+        limit: 10
+        unit: TB/month
+    enforcement: Billing minimum
+policies:
+  - name: Free API Request Policy
+    description: >-
+      Wasabi provides free API requests for standard commercial workloads.
+      The policy is enforced based on usage patterns rather than hard
+      thresholds. Applications generating disproportionate server load
+      relative to storage activity may be restricted.
+    url: https://wasabi.com/pricing/faq
+  - name: Free Egress Policy
+    description: >-
+      Wasabi provides free egress up to the 1:1 egress-to-storage ratio.
+      Ingress (data upload) is always free and unrestricted. Egress
+      exceeding the active storage volume is considered out of policy.
+    url: https://wasabi.com/pricing/faq
