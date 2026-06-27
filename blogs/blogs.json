@@ -1,48 +1,15 @@
 {
-  "aid": "wasabi",
-  "url": "https://wasabi.com/blog/",
-  "fetched": "2026-06-14T20:42:17Z",
-  "posts": [
-    {
-      "title": "Introducing Covert Copy\u2122 technology: Your ultimate line of defense against ransomware",
-      "url": "https://wasabi.com/blog/data-protection/introducing-covert-copy-your-ultimate-line-of-defense-against-ransomware",
-      "date": null,
-      "tags": [
-        "data-protection",
-        "ransomware",
-        "security"
-      ]
-    },
-    {
-      "title": "Budgeting for cyber resilience: 7 CIO-ready priorities",
-      "url": "https://wasabi.com/blog/data-protection/budgeting-for-cyber-resilience-7-cio-ready-priorities",
-      "date": null,
-      "tags": [
-        "data-protection",
-        "finops",
-        "cio"
-      ]
-    },
-    {
-      "title": "The cloud's walled garden is withering: Why customers are choosing open ecosystems",
-      "url": "https://wasabi.com/blog/the-channel/the-cloud-walled-garden-choosing-open-ecosystems",
-      "date": null,
-      "tags": [
-        "channel",
-        "open-ecosystem",
-        "cloud-storage"
-      ]
-    }
-  ],
   "repo": "wasabi",
   "feeds": [
     {
-      "source": "https://www.linkedin.com/company/wasabitechnologies/",
-      "feed_url": "https://www.linkedin.com/company/wasabitechnologies/",
-      "title": "",
+      "source": "https://wasabi.com/blog/",
+      "feed_url": "",
       "saved": 0,
-      "method": "none"
+      "method": "agent-scrape",
+      "error": "no determinable post dates on listing"
     }
   ],
-  "post_count": 0
+  "fetched": "2026-06-27T13:21:06Z",
+  "post_count": 3,
+  "agent_pulled": "2026-06-27"
 }
