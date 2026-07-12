@@ -1,0 +1,16 @@
+generated: '2026-07-11'
+method: searched
+probe: true
+source: https://wasabi.com/cloud-object-storage/security
+url: https://wasabi.com/cloud-object-storage/security
+certifications:
+- SOC 2
+- ISO 27001
+- PCI DSS
+evidence:
+- source: https://wasabi.com/cloud-object-storage/security
+  keywords:
+  - soc 2
+  - iso 27001
+  - pci-dss
+  - trust center

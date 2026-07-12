@@ -101,6 +101,10 @@ apis:
       - type: Documentation
         url: https://docs.wasabi.com/apidocs/api-guides
 common:
+  - type: TrustCenter
+    url: security/wasabi-trust-center.yml
+  - type: DomainSecurity
+    url: security/wasabi-domain-security.yml
   - type: Website
     url: https://wasabi.com
   - type: Documentation
