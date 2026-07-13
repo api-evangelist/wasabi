@@ -2,14 +2,14 @@
   "repo": "wasabi",
   "feeds": [
     {
-      "source": "https://wasabi.com/blog/",
-      "feed_url": "",
+      "source": "https://www.linkedin.com/company/wasabitechnologies/",
+      "feed_url": "https://www.linkedin.com/company/wasabitechnologies/",
+      "title": "",
       "saved": 0,
-      "method": "agent-scrape",
-      "error": "no determinable post dates on listing"
+      "method": "none"
     }
   ],
-  "fetched": "2026-06-27T13:21:06Z",
+  "fetched": "2026-07-11T11:50:51Z",
   "post_count": 3,
   "agent_pulled": "2026-06-27"
 }
