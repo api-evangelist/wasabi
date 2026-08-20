@@ -72,6 +72,12 @@ apis:
     tags:
       - Account Management
       - IAM
+      - User
+      - Access Keys
+      - Subaccounts
+    tags_raw:
+      - Account Management
+      - IAM
       - Users
       - Access Keys
       - Sub-accounts
@@ -105,6 +111,11 @@ apis:
     humanURL: https://docs.wasabi.com/apidocs/api-guides
     baseURL: https://api.wasabi.com
     tags:
+      - Artificial Intelligence
+      - Media Intelligence
+      - Content Analysis
+      - Machine-Learning
+    tags_raw:
       - AI
       - Media Intelligence
       - Content Analysis
