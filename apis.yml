@@ -85,7 +85,7 @@ apis:
       - IAM
       - User
       - Access Keys
-      - Subaccounts
+      - Sub-accounts
     tags_raw:
       - Account Management
       - IAM
