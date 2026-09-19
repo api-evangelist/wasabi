@@ -82,7 +82,7 @@ apis:
     baseURL: https://accountcontrolservice.wasabisys.com
     tags:
       - Account Management
-      - IAM
+      - Identity and Access Management
       - User
       - Access Keys
       - Subaccounts
