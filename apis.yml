@@ -46,6 +46,7 @@ tags:
   - Media Storage
   - Backup
   - Enterprise Storage
+  - Storage
 apis:
   - aid: wasabi:wasabi-s3-api
     name: Wasabi S3 API
@@ -125,12 +126,13 @@ apis:
       - Artificial Intelligence
       - Media Intelligence
       - Content Analysis
-      - Machine-Learning
+      - Machine Learning
     tags_raw:
       - AI
       - Media Intelligence
       - Content Analysis
       - Machine Learning
+      - Machine-Learning
     properties:
       - type: Documentation
         url: https://docs.wasabi.com/apidocs/api-guides
