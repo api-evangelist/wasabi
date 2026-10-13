@@ -1,0 +1,20 @@
+edges:
+- partner_name: Amazon Web Services
+  partner: amazon-web-services
+  partner_match: shape-anchor
+  channel: provider-built
+  relationship: compatible
+  direction: provider-built
+  shape: aws-s3
+  type: docs
+  degree: full
+  evidence: https://docs.wasabi.com/docs/wasabi-api
+  evidence_kind: own-docs
+  evidence_file: https://github.com/api-evangelist/wasabi/blob/main/evidence/compatibility/wasabi-aws-s3-1.md
+  quote: Wasabi’s object storage service is built to be 100% bit-compatible with AWS S3 and Identity and Access
+    Management (AWS IAM) APIs. This means that any existing AWS S3-compatible application or gateway device will
+    work seamlessly with Wasabi.
+  detected_by: sweep-shape-compat.py
+  first_seen: '2026-10-13'
+generated: '2026-10-13'
+method: searched

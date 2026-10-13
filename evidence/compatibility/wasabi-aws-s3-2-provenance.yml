@@ -1,0 +1,13 @@
+fetched: '2026-10-13'
+method: fetched
+source: https://wasabi.com/s3-compatible-cloud-storage
+page: https://wasabi.com/s3-compatible-cloud-storage
+file: wasabi-aws-s3-2.md
+bytes: 3965
+sha256: 2b853f27cbff0b804f293215268ea46a3ec8bb78a92f7b3adb61766eb1ea276d
+anchor: amazon-web-services
+shape: aws-s3
+classification: declares-compatibility
+quote: Store training data, checkpoints, inference logs, and AI datasets on S3-compatible cloud storage that works
+  with any GPU cloud or compute provider. Hot by default with no rehydration or retrieval fees.
+note: text extracted from the provider's own page (tags stripped), saved for evidence
