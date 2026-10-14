@@ -16,5 +16,32 @@ edges:
     work seamlessly with Wasabi.
   detected_by: sweep-shape-compat.py
   first_seen: '2026-10-13'
+- partner_name: Okta (own)
+  partner: okta
+  partner_match: mirror
+  mirror_match: domain
+  type: marketplace
+  relationship: platform-app
+  direction: third-party
+  channel: partner-built
+  marketplace: own
+  evidence: https://www.okta.com/integrations/wacm/
+  mirror_of: okta/integrations/okta-integration-edges.yml
+  apps:
+  - Wasabi Account Control Manager
+  listing_count: 1
+  detected: '2026-10-14'
+  detected_by: mirror-platform-listings.py
+  category: Lifecycle Management
+  badges:
+  - OKTA_VERIFIED
+  features:
+  - CREATE
+  - DEACTIVATE
+  - UPDATE
 generated: '2026-10-13'
 method: searched
+checked:
+- okta/integrations/okta-integration-edges.yml
+source:
+- okta/integrations/okta-integration-edges.yml
